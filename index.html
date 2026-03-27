@@ -28,14 +28,28 @@
 <div class="board" id="board"></div>
 
 <script>
-  let current = "X";
-  const board = document.getElementById("board");
+let current = "X";
+const board = document.getElementById("board");
+
+for (let i = 0; i < 9; i++) {
+  let cell = document.createElement("button");
+  cell.classList.add("cell");
+
+  cell.onclick = () => {
+    if (cell.innerText === "") {
+      cell.innerText = current;
+      current = current === "X" ? "O" : "X";
+    }
+  };
+
+  board.appendChild(cell);
+}
+</script>
 
   for (let i = 0; i < 9; i++) {
     let cell = document.createElement("button");
     cell.classList.add("cell");
-    cell.onclick = () => {
-      if (cell.innerText === "") {
+    cell.onclick = () =>body     if (cell.innerText === "") {
         cell.innerText = current;
         current = current === "X" ? "O" : "X";
       }
